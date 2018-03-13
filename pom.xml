@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion> 
+   <groupId>nes</groupId> 
+   <artifactId>nesbuild</artifactId> 
+   <version>1.0.0-${maven.build.timestamp}</version> 
+   <packaging>pom</packaging> 
+   <name>NES</name> 
+      
+   <modules> 
+  
+   	<module>hrorg.c.Client</module> 
+   	<module>hrorg.c.EJB</module> 
+  
+   </modules> 
+	<profiles>
+ 		<profile>
+            <id>weblogic</id>
+            <distributionManagement>
+                <repository>
+                    <id>wl</id>
+                    <name>Weblogic Releases</name>
+                    <url>${repo.url.weblogic}</url>
+                </repository>
+                <snapshotRepository>
+                    <id>dev</id>
+                    <name>GCM Snapshots</name>
+                    <url>${repo.url.snapshots}</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>default</id>
+            <distributionManagement>
+                <repository>
+                    <id>gcm</id>
+                    <name>GCM Releases</name>
+                    <url>${repo.url.releases}</url>
+                </repository>
+                <snapshotRepository>
+                    <id>dev</id>
+                    <name>GCM Snapshots</name>
+                    <url>${repo.url.snapshots}</url>
+                </snapshotRepository>
+            </distributionManagement>
+       </profile>
+ 	</profiles>
+ </project>
